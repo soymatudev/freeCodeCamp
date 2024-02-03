@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import FreeCodeCampLogo from './img/FreeCodeCampLogo.png';
-import Tarea from './componentes/Tarea';
-import TareaFormulario from './componentes/TareaFormulario';
+import ListaDeTareas from './componentes/ListaDeTareas';
 import './App.css';
 
 const complete = (completada) => {
@@ -19,8 +18,7 @@ function App() {
 
       <div className="tareas-lista-principal">
         <h1>Mis tareas</h1>
-        <TareaFormulario />
-        <Tarea texto={"Soy una tarea"} />
+        <ListaDeTareas />
       </div>
 
     </div>

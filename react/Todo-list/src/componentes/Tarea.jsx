@@ -2,13 +2,19 @@ import '../css/Tarea.css'
 import React from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 
-function Tarea ({ texto, completada }) {
+function Tarea ({ id, texto, completada, completarTarea, eliminarTarea }) {
   return (
     <div className={completada ? "tarea-contenedor completada" : "tarea-contenedor"}>
-      <div className="tarea-texto">
+      <div 
+        className="tarea-texto"
+        onClick={() => completarTarea(id)}  
+      >
         {texto}
       </div>
-      <div className="tarea-contenedor-iconos">
+      <div 
+        className="tarea-contenedor-iconos"
+        onClick={() => eliminarTarea(id)}
+      >
         <AiOutlineDelete className="tarea-icono"/>
       </div>
     </div>
