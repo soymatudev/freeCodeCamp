@@ -1,0 +1,29 @@
+.note-container {
+  height: 100%;
+  min-height: 150px;
+  min-width: 250px;
+  max-height: 350px;
+  max-width: 250px;
+  border-radius: 8px;
+  background-color: #2b2b32;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.note-title {
+  min-height: 1.5em;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(253, 215, 0);
+  color: #000;
+}
+
+.note-body {
+  text-align: justify;
+  padding: 6px;
+}
