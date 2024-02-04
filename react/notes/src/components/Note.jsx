@@ -1,15 +1,15 @@
 import React from 'react';
 import '../styles/Note.css';
+import { TiDeleteOutline } from "react-icons/ti";
 
-function Note({ title, body }) {
+function Note({ id, title, body, deleteNote, }) {
   return (
     <div className='note-container'>
-      <h1 className='note-title'>
-        {title}
-      </h1>
-      <p className='note-body'>
-        {body}
-      </p>
+      <div className='note-title-container'>
+        <h1 className='note-title'>{title}</h1>
+        <TiDeleteOutline onClick={() => deleteNote(id)} className='note-icon-delete' />
+      </div>
+      <p className='note-body'>{body}</p>
     </div>
   );
 }
