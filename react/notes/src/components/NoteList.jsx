@@ -7,21 +7,36 @@ function NoteList() {
 
   const [notes, setNotes] = useState([]);
 
-  const addNote = (note) => {
+  /* const addNote = (note) => {
     if (note.body.trim()) {
       note.body = note.body.trim();
 
-      /* const bodyFetchAdd = `variablekey=addNote&id=${note.id}&title${note.title}&body${note.body}`;
+      const bodyFetchAdd = `variablekey=addNote&id=${note.id}&title=${note.title}&body=${note.body}`;
       dataFetch(bodyFetchAdd);
 
       const bodyFetchView = `variablekey=${'viewNotes'}`;
       console.log(dataFetch(bodyFetchView));
       //const dataNotes = dataFetch(bodyFetchView);
- */
+
       const updateNotes = [note, ...notes];
       setNotes(updateNotes);
     }
+  } */
+
+  const addNote = async (note) => {
+  if (note.body.trim()) {
+    note.body = note.body.trim();
+    const bodyFetchView = `variablekey=${"viewNotes"}`;
+    try {
+      const dataNotes = await dataFetch(bodyFetchView);
+      console.log(dataNotes);
+      const updateNotes = [note, ...notes];
+      setNotes(updateNotes);
+    } catch (error) {
+      console.error("Error al obtener notas:", error);
+    }
   }
+};
 
   const deleteNote = (id) => {
     const updateNotes = notes.filter(note => note.id !== id);
