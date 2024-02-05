@@ -7,45 +7,55 @@ function NoteList() {
 
   const [notes, setNotes] = useState([]);
 
-  /* const addNote = (note) => {
-    if (note.body.trim()) {
-      note.body = note.body.trim();
-
-      const bodyFetchAdd = `variablekey=addNote&id=${note.id}&title=${note.title}&body=${note.body}`;
-      dataFetch(bodyFetchAdd);
-
-      const bodyFetchView = `variablekey=${'viewNotes'}`;
-      console.log(dataFetch(bodyFetchView));
-      //const dataNotes = dataFetch(bodyFetchView);
-
-      const updateNotes = [note, ...notes];
-      setNotes(updateNotes);
-    }
-  } */
-
   const addNote = async (note) => {
   if (note.body.trim()) {
     note.body = note.body.trim();
+
+    const bodyFetchAdd = `variablekey=${"addNote"}&id=${note.id}&title=${note.title}&body=${note.body}`;
     const bodyFetchView = `variablekey=${"viewNotes"}`;
+    
     try {
+      await dataFetch(bodyFetchAdd);
+
       const dataNotes = await dataFetch(bodyFetchView);
-      console.log(dataNotes);
-      const updateNotes = [note, ...notes];
+      //console.log(dataNotes);
+      const updateNotes = [...dataNotes];
       setNotes(updateNotes);
+
     } catch (error) {
       console.error("Error al obtener notas:", error);
     }
   }
-};
+  };
+  
+  const loadNote = async () => {
+    const bodyFetchView = `variablekey=${"viewNotes"}`;
+    try {
+      const dataNotes = await dataFetch(bodyFetchView);
+      const updateNotes = [...dataNotes];
+      setNotes(updateNotes);
+    } catch (error) {
+      console.error("Error al obtener notas:", error);
+    }
+  };
 
-  const deleteNote = (id) => {
+  const deleteNote = async (id) => {
+    const bodyFetchDelete = `variablekey=${"deleteNote"}&id=${id}`;
+    try {
+      await dataFetch(bodyFetchDelete);
+      const dataNotes = loadNote();
+      const updateNotes = [...dataNotes];
+      setNotes(updateNotes);
+    } catch (error) {
+      console.error("Error al obtener notas:", error);
+    }/* 
     const updateNotes = notes.filter(note => note.id !== id);
-    setNotes(updateNotes);
+    setNotes(updateNotes); */
   }
 
   return (
     <>
-      <div className='notes-form-container'>
+      <div onLoad={loadNote} className='notes-form-container'>
         <Form onSubmit={addNote} />
       </div>
       <div className='notes-container'>

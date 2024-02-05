@@ -7,7 +7,7 @@ class Connection
 
   // Datos de conexión a la base de datos
   private static $HOST = "127.0.0.1";
-  private static $PORT = 3306;
+  private static $PORT = '3306';
   private static $DBNAME = "notes";
   private static $USER = "root";
   private static $PASSWORD = "";

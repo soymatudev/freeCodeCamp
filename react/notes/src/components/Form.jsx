@@ -9,12 +9,12 @@ function Form(props) {
   const [body, setBody] = useState('');
 
   const getTitle = (titleText) => {
-    console.log(titleText.target.value);
+    //console.log(titleText.target.value);
     setTitle(titleText.target.value);
   }
 
   const getbody = (bodyText) => {
-    console.log(bodyText.target.value);
+    //console.log(bodyText.target.value);
     setBody(bodyText.target.value);
   }
 
