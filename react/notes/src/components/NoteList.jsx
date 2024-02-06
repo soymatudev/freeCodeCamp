@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/NoteList.css'
+import '../styles/NoteList.css';
 import Form from './Form';
 import Note from './Note';
 
