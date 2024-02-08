@@ -7,6 +7,27 @@ function NoteList() {
 
   const [notes, setNotes] = useState([]);
 
+  const dataFetch = async (body) => {
+    try {
+      const response = await fetch('http://localhost/freecodecamp/react/notes/src/php/getAction.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: body,
+      });
+    
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+    
+      const data = await response.json();
+        return data;
+      } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
+
   const addNote = async (note) => {
   if (note.body.trim()) {
     note.body = note.body.trim();

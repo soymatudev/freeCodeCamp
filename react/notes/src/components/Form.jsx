@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/Form.css';
-import ReactLogo from '../img/reactIcon.png'
 import { v4 as uuidv4} from 'uuid'
 
 function Form(props) {
@@ -48,7 +47,7 @@ function Form(props) {
         </form>
       </div>
       <div>
-        <img src={ReactLogo} alt="" className='notes-logo' />
+        <img src={'./reactIcon.png'} alt="" className='notes-logo' />
       </div>
     </>
   );

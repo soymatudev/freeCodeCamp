@@ -1,4 +1,4 @@
-// Hacemos una solicitud Fetch ya sea para eliminar o agregar una nota
+/* // Hacemos una solicitud Fetch ya sea para eliminar o agregar una nota
 async function dataFetch(body) {
   //console.log(body);
   try {
@@ -21,7 +21,7 @@ async function dataFetch(body) {
     console.log("Error: ", error);
   }
 }
-
+ */
 // body: `variablePHP=${keyData}`,
 
 /* 
